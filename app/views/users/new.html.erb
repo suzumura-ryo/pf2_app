@@ -1,0 +1,145 @@
+<div class="container">
+        <header>
+            <h1>わんにゃフル！！ディッシュ☆☆☆<br>無料アカウント作成</h1>
+        </header>
+    </div>
+    <hr>
+    <div class="container">
+        <form action="" method="post" class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <%= form_for(@user) do |f| %>
+                <div class="form-group">
+                    <label for="nickname">ニックネーム</label>
+                    <input type="text" id="nickname" name="nickname" class="form-control" placeholder="例）山田太郎" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="d-block" for="email">メールアドレス</label>
+                    <input type="mail" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="d-block" for="password">パスワード</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="d-block" for="password_confirmation">パスワード確認</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="d-block">生年月日</label>
+                    <label for="year">年：</label><select id="year" name="user[year]"></select>
+                    
+                    <label for="month">月：</label><select id="month" name="user[month]"></select>
+
+                    <label for="day">日：</label><select id="day" name="user[day]"></select>   
+                </div>
+
+                <div class="form-group">
+                    <label class="d-block">性別</label>
+                    <div class="form-check form-check-inline" >
+                        <input type="radio" class="form-check-input" name="gender" id="man" value="1">
+                        <label for="man" class="form-check-label">男性</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" id="woman" value="2">
+                        <label for="woman" class="form-check-label">女性</label>
+                    </div>
+                    
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" id="others" value="0">
+                        <label for="others" class="form-check-label">その他</label>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary ">入力した内容を確認する</button>
+                </div>
+                
+                <p>アカウントを作成すると利用規約とプライバシーポリシーに同意したものとみなされます。</p>
+
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary">すでにアカウントをお持ちの方</button>
+                </div>
+                
+                <p>または</p>
+
+                <p>SNSでログイン</p>
+                
+            </div>
+
+        </form>
+
+    </div>
+
+    <hr>
+
+    <div class="container">
+    <footer>
+        <p>&copy; わんにゃフル！！ディッシュ☆☆☆</p>
+    </footer>  
+    </div> 
+
+
+<script>
+
+$(document).ready(function() {
+  const monthNames = ["1月", "2月", "3月", "4月", "5月", "6月",
+    "7月", "8月", "9月", "10月", "11月", "12月"
+  ];
+  let qntYears = 40;
+  let selectYear = $("#year");
+  let selectMonth = $("#month");
+  let selectDay = $("#day");
+  let currentYear = new Date().getFullYear();
+
+  for (var y = 0; y < qntYears; y++) {
+    let date = new Date(currentYear);
+    let yearElem = document.createElement("option");
+    yearElem.value = currentYear
+    yearElem.textContent = currentYear;
+    selectYear.append(yearElem);
+    currentYear--;
+  }
+
+  for (var m = 0; m < 12; m++) {
+    let month = monthNames[m];
+    let monthElem = document.createElement("option");
+    monthElem.value = m;
+    monthElem.textContent = month;
+    selectMonth.append(monthElem);
+  }
+
+  var d = new Date();
+  var month = d.getMonth();
+  var year = d.getFullYear();
+  var day = d.getDate();
+
+  selectYear.val(year);
+  selectYear.on("change", AdjustDays);
+  selectMonth.val(month);
+  selectMonth.on("change", AdjustDays);
+
+  AdjustDays();
+  selectDay.val(day)
+
+  function AdjustDays() {
+    var year = selectYear.val();
+    var month = parseInt(selectMonth.val()) + 1;
+    selectDay.empty();
+
+    var days = new Date(year, month, 0).getDate();
+
+    for (var d = 1; d <= days; d++) {
+      var dayElem = document.createElement("option");
+      dayElem.value = d;
+      dayElem.textContent = d;
+      selectDay.append(dayElem);
+    }
+  }
+});
+
+</script>
