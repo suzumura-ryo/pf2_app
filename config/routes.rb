@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
   root 'home#top'
-  get 'signup', to: 'users#new', as: 'signup'
-  get 'users/create'
+  get 'signup',      to: 'users#new',    as: 'signup'
+  post'user/create', to: 'users#create', as: 'user_create'
   get 'users/index'
   get 'users/show'
   get 'users/edit'

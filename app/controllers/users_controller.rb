@@ -5,9 +5,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.birthday = "#{params[:user][:year]}/#{params[:user][:month]}/#{params[:user][:day]}"
+    
+    p "============================"
+    p  params
+    p "============================"
     if @user.save
+      redirect_to root_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -15,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    
   end
 
   def edit
