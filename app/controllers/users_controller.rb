@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     p  params
     p "============================"
     if @user.save
+      log_in @user
       redirect_to root_path
     else
       render :new

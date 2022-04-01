@@ -1,0 +1,57 @@
+.container {
+    background-color: bisque;
+    width: 40%;
+    padding: 0;
+}
+
+h1 {
+    margin-bottom: 0;
+    font-size: 20px;
+    color: rgb(241, 80, 31);
+}
+
+hr {
+    border-width: 3px;
+    border-color: rgb(237, 143, 100);
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-check {
+    margin-top: 0;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+label {
+    margin: 10px 0 0;
+}
+
+label.form-check-label {
+    margin: 0;
+}
+
+input#auto.form-check-input {
+    position: relative;
+    top: 1px;
+}
+
+button {
+    margin-top: 30px;
+    width: 50%;
+}
+
+.new {
+    margin-bottom: 30px;
+}
+
+.alert{
+    width: 50% ;
+    padding: 0;
+}
+
+p.alert-danger{
+    margin: 0 auto;
+}
