@@ -2,6 +2,13 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   has_secure_password
   
+  # 渡された文字列のハッシュ値を返す
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+  
   # ランダムなトークンを返す
   def User.new_token
     SecureRandom.urlsafe_base64
