@@ -10,9 +10,9 @@
             <div class="col-sm-4 offset-sm-4">
                
                 <div class="form-group">
-                    <label for="nickname">ニックネーム</label>
-                    <span>あと：</span><span id="countname">0文字</span>
-                    <input type="text" id="nickname" oninput="cname();" name="user[nickname]" class="form-control" placeholder="例）山田太郎" required maxlength="15">
+                    <label for="nickName">ニックネーム</label>
+                    <span>あと：</span><span id="countName">0</span><span id = countMsg>文字</span>
+                    <input type="text" id="nickName" oninput="countName()" name="user[nickname]" class="form-control" placeholder="例）山田太郎" required >
                 </div>
 
                 <div class="form-group">
@@ -90,23 +90,31 @@
 <script>
 
 // 文字カウント（nickname)DOM操作
-function cname(){
-  var len = document.getElementById("nickname").value.trim().length;
-  document.getElementById("countname").innerText = len + "文字";
-  
-  //減算して文字を赤くし、さらに空白を削除しようとしたが駄目だった
-  //const len = document.getElementById("nickname").value.length.replace(/\s+/g, "");
-  //const len2 = document.getElementById("countname").innerText = len + "文字";
-  //const maxlength = 15 // 最大文字数
-  //len.addEventListener('oninput', () => {
-  //len2.textcontent = maxlength - len.value.length;
-  //if(maxlength - len.value.length < 0){
-    //len2.style.color = 'red'; // 最大文字数を超過したら赤字で表示する
-  //}else{
-    //len2.style.color = '#444';
-  //}
-//}, false);
+
+
+
+function countName(){
+    const maxChar = 15;
+    const nickName = document.getElementById("nickName").value;
+    let countName = document.getElementById("countName");
+    let countMsg = document.getElementById("countMsg");
+    
+    if (nickName.length > maxChar){
+        countName.style.color = "red";
+        let overChar = nickName.length - maxChar;
+        countName.innerHTML = overChar;
+        countMsg.style.color = "red";
+        countMsg.innerHTML = "文字数オーバーです";
+    }else{
+        countName.style.color = "black";
+        countName.innerHTML = nickName.length;
+        countMsg.style.color= "black";
+        countMsg.innerHTML = "文字";
+    }
 }
+
+
+
 
 // 文字カウント（password)DOM操作
  function pass(){
