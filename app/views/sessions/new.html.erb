@@ -1,52 +1,47 @@
 <h1>Sessions#new</h1>
 
-    <div class="container">
-        <div class="row">
-            <header class="mx-auto">
-                <h1>わんにゃフル！！ディッシュ☆☆☆</h1>
-            </header>
-        </div>
-        
-        <%#ログイン失敗時のフラッシュ用の記述　applicationController.rbとsessionsController.rbにも関連の記述あり%>
-        <% flash.each do |key, value| %>
-            <p class="alert alert-<%= key %>">
-              <%= value %>
-            </p>
+<div class="container">
+  <div class="row">
+    <header class="mx-auto">
+      <h1>わんにゃフル！！ディッシュ☆☆☆</h1>
+    </header>
+  </div>
+  
+  <%#ログイン失敗時のフラッシュ用の記述　applicationController.rbとsessionsController.rbにも関連の記述あり%>
+  <% flash.each do |key, value| %>
+    <p class="alert alert-<%= key %>">
+      <%= value %>
+    </p>
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="form-group">
+        <%=form_for :session, url: login_path do |f| %>
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" name="session[email]" class="form-control">
+          <label for="password">パスワード</label>
+          <input type="password" id="password" name="session[password]" class="form-control">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">ログイン</button>
+          </div>
+          <div class="remember_me">
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+              <%= f.check_box :remember_me %>
+              <span>次回から自動ログインする</span>
+            <% end %>
+          </div>
         <% end %>
-    </div>
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 offset-sm-2">
-                <div class="form-group">
-                    <%=form_for :session, url: login_path do |f| %>
-                        <label for="email">メールアドレス</label>
-                        <input type="email" id="email" name="session[email]" class="form-control">
-    
-                        <label for="password">パスワード</label>
-                        <input type="password" id="password" name="session[password]" class="form-control">
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">ログイン</button>
-                </div>
-               
-                <div class="form-group">
-                    
-                <%= f.label :remember_me, class: "checkbox inline" do %>
-                    <%= f.check_box :remember_me %>
-                    <span>次回から自動ログインする</span>
-                <% end %>
-                    
-                </div>
-                    <% end %>
-                
-                <p class="text-center">または<br>SNSでログイン</p>
-                <div class="text-center">
-                    <div class="new">
-                        <a href="/signup"><button type="button" class="btn btn-primary">新規会員登録はこちら</button>
-                    </div>
-                </div>
-            </div>
+      </div>
+      
+          <p class="text-center">または<br>SNSでログイン</p>
+      <div class="text-center">
+        <div class="new">
+          <a href="/signup"><button type="button" class="btn btn-primary">新規会員登録はこちら</button>
         </div>
+      </div>
     </div>
+  </div>
+</div>
