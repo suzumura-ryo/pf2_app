@@ -1,0 +1,12 @@
+<h1>Procedures#new</h1>
+
+
+
+<%= form_for @procedure, url: procedure_create_path do |f| %>
+<%#画像アップロードの部分まだわからん%>
+<%#= f.label :image %>
+
+<%= f.label :content,"タイトル" %><br>
+<%= f.text_field :content %><br>
+<%= f.submit "登録する"%>
+<% end %>

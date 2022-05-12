@@ -4,3 +4,8 @@ User.create!(nickname:  "管理者",
              password:              "hhh",
              password_confirmation: "hhh",
              admin: true)
+
+#サンプルデータ100件（fakerは使ってない）
+(1..100).each do |i|
+    Post.create(title: "Post #{i}")
+end

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :recipes, dependent: :destroy
+  has_many :procedures, dependent: :destroy
   attr_accessor :remember_token
   has_secure_password
   

@@ -10,7 +10,7 @@
         </div>
     </div>
     <% if logged_in? %>
-        <div class="col-auto d-flex align-items-center"><a href="#">レシピ新規作成</a></div>
+        <div class="col-auto d-flex align-items-center"><%= link_to "レシピ新規作成", procedures_new_path(current_user) %></div>
         <div class="col-auto d-flex align-items-center"><a href="#">作成したレシピ一覧</a></div>
         <div class="col-auto d-flex align-items-center"><a href="#">フォロー済みユーザー一覧</a></div>
         <div class="col-auto d-flex align-items-center"><%= link_to "登録情報", edit_path(current_user) %></div>
