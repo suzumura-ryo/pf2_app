@@ -4,6 +4,7 @@ class CreateProcedures < ActiveRecord::Migration[5.2]
       t.string :image
       t.text :content
       t.integer :recipe_id
+      t.integer :user_id
 
       t.timestamps
     end

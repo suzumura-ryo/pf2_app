@@ -1,25 +1,5 @@
-<header>
-<div class="row justify-content-center">
-        <div class="col-auto d-flex align-items-center">わんにゃフル!!ディッシュ☆☆☆</div>
-
-        <div class="col-auto">
-            <div class="input-group">
-                <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力"></input>
-                <span class="input-group-btn input-group-append">
-                    <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i>検索</submit>
-                </span>
-            </div>
-        </div>
-
-        <div class="col-auto d-flex align-items-center"><a href="/signup">新規会員登録</a></div>
-        <div class="col-auto d-flex align-items-center"><a href="#">初めての方へ</a></div>
-        <div class="col-auto d-flex align-items-center"><a href="#">ヘルプ</a></div>
-        <div class="col-auto d-flex align-items-center"><a href="/login">ログイン</a></div>
-    </div>
-</header>
-<dl class="notice">
-    <dt>お知らせ</dt>
-    <dd>公式サイトプレオープン！！</dd>
-</dl>
-
-<footer></footer>
+<% if logged_in? %>
+<%= render 'home/logged_in_top', locals: {recipes: @recipes} %>
+<% else %>
+<%= render 'home/before_logged_in_top' %>
+<% end %>

@@ -1,0 +1,10 @@
+<% flash.each do |key, value| %>
+    <p class="alert alert-<%= key %>">
+      <%= value %>
+    </p>
+  <% end %>
+  
+  <% @recipes.each do |recipe| %>
+    <%= recipe.title %>
+  <% end %>
+  表示されるはず

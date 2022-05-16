@@ -51,8 +51,9 @@ module SessionsHelper
   end
   
   # 記憶したURL（もしくはデフォルト値）にリダイレクト
+  #　　　　　　　　　　　　　　　　　　　　↓このroot_pathは変更した。もともとのチュートリアルの記述ではdefaultだった　　 
   def redirect_back_or(default)
-    redirect_to(session[:forwarding_url] || default)
+    redirect_to(session[:forwarding_url] || root_path)
     session.delete(:forwarding_url)
   end
 

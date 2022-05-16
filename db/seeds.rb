@@ -7,5 +7,5 @@ User.create!(nickname:  "管理者",
 
 #サンプルデータ100件（fakerは使ってない）
 (1..100).each do |i|
-    Post.create(title: "Post #{i}")
+    Recipe.create(title: "Test Recipe #{i}")
 end
