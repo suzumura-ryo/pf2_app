@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   
   get 'recipes/new'
   get 'recipes/index'
-  get 'recipes/show'
+  get 'recipes/:id', to: 'recipes#show', as: 'recipe'
   root 'home#top'
+  
+  
   get 'procedures/index',         to: 'procedures#index',     as: 'procedures_index'
   get 'procedures/:id/show',      to: 'procedures#show',      as: 'procedures_show'
   get 'procedures/new',           to: 'procedures#new',       as: 'procedures_new'
+  
+  
   post 'procedures/create',       to: 'procedures#create',    as: 'procedure_create'
   get 'procedures/:id/edit',      to: 'procedures#edit',      as: 'procedure_edit'
   patch 'procedures/:id/update',  to: 'procedures#update',    as: 'procedure_update'

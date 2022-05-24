@@ -5,6 +5,6 @@
   <% end %>
   
   <% @recipes.each do |recipe| %>
-    <%= recipe.title %>
+    <%= link_to recipe.title, recipe_path(recipe.id) %><br>
   <% end %>
   表示されるはず

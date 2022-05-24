@@ -1,2 +1,6 @@
 <h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h2><%= @recipe.title %>の詳細画面</h2>
+
+<% @recipe.procedures.each do |procedure| %>
+手順<%= procedure.id %>：<%= procedure.content %><br>
+<% end %>
